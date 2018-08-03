@@ -1,0 +1,57 @@
+<div class="jumbotron bg-warning text-center">
+    <img src="/assets/img/burger-icon.png" width="200px" height="200px" alt="burger">
+    <h1>Eat-Da-Burger!</h1>
+    <h3>THE SEQUEL</h3>
+</div>
+
+<div class="row justify-content-center w-100">
+    <div class="col-5">
+        <div class="card mb-5">
+            <h5 class="card-header bg-success text-center text-white">
+                To Be Devoured
+            </h5>
+            <ul class="list-group list-group-flush">
+                {{#each burgers}} {{#unless devoured}}
+                <li class="list-group-item d-flex">
+                    <span class="flex-grow-1">{{ id }}. {{ burger_name }}</span>
+                    <button class="btn btn-danger btn-lg devBtn" data-id="{{id}}">
+                        <i class="fas fa-utensils"></i>
+                    </button>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-5 mb-5">
+        <div class="card mb-5">
+            <h5 class="card-header bg-danger text-center text-white">
+                DEVOURED!!
+            </h5>
+            <ul class="list-group list-group-flush">
+                {{#each burgers}} {{#if devoured}}
+                <li class="list-group-item d-flex">
+                    <span class="text-black-50 disabled">{{ id }}. {{ burger_name }}</span>
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <div class="card mb-5">
+            <h5 class="card-header bg-primary text-center text-white">
+                Add a New Burger:
+            </h5>
+            <div class="card-body">
+                <form id="create-burger">
+                    <div class="form-group">
+                        <label for="burgerName">Burger Name</label>
+                        <input type="text" class="form-control" id="burgerName" name="burgerName">
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Add Burger</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
